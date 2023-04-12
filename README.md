@@ -103,7 +103,10 @@ https://docs.rke2.io/cluster_access
 # RKE2 (cli) Uninstall
 https://docs.rke2.io/install/uninstall
 ```
-# /usr/local/bin/rke2-uninstall.sh
+/usr/local/bin/rke2-uninstall.sh
+sudo iptables -t filter -F
+sudo iptables -t filter -X
+sudo netstat -ntlp
 ```
 
 
