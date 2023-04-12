@@ -104,6 +104,15 @@ https://docs.rke2.io/cluster_access
 https://docs.rke2.io/install/uninstall
 ```
 /usr/local/bin/rke2-uninstall.sh
+
+kubeadm reset
+sudo apt-get purge kubeadm kubectl kubelet kubernetes-cni kube*
+sudo apt-get autoremove
+sudo rm -rf ~/.kube
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+systemctl restart docker
+
 sudo iptables -t filter -F
 sudo iptables -t filter -X
 sudo netstat -ntlp
