@@ -1,10 +1,46 @@
 # RKE2 (cli) Install
 https://docs.rke2.io/install/quickstart
+
+## Server install
 ```
-# curl -sfL https://get.rke2.io | INSTALL_RKE2_VERSION=v1.26.3+rke2r1 sh -
-#
-# Environment variables:
-#
+curl -sfL https://get.rke2.io | INSTALL_RKE2_VERSION=v1.26.3+rke2r1 INSTALL_RKE2_TYPE=server sh -
+
+# Enable the rke2-server service
+systemctl enable rke2-server.service
+
+# Start the service
+systemctl start rke2-server.service
+
+# <SERVER_TOKEN>
+cat /var/lib/rancher/rke2/server/node-token
+```
+
+## Agent install
+```
+curl -sfL https://get.rke2.io | INSTALL_RKE2_VERSION=v1.26.3+rke2r1 INSTALL_RKE2_TYPE=agent sh -
+
+# Enable the rke2-agent service
+systemctl enable rke2-agent.service
+
+# Configure the rke2-agent service
+mkdir -p /etc/rancher/rke2/
+vim /etc/rancher/rke2/config.yaml
+
+# <SERVER_TOKEN> (server)
+/var/lib/rancher/rke2/server/node-token
+
+# Content for config.yaml:
+server: https://<SERVER_IP>:9345
+token: <SERVER_TOKEN>
+
+# Start the service
+systemctl start rke2-agent.service
+
+
+```
+
+## Environment variables:
+```
 #   - INSTALL_RKE2_CHANNEL
 #     Channel to use for fetching rke2 download URL.
 #     Defaults to 'latest'.
