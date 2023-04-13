@@ -94,9 +94,9 @@ systemctl start rke2-agent.service
 https://docs.rke2.io/cluster_access
 
 ```
-# export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
-# kubectl get pods --all-namespaces
-# helm ls --all-namespaces
+export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
+kubectl get pods --all-namespaces
+helm ls --all-namespaces
 ```
 
 
@@ -125,7 +125,7 @@ sudo netstat -ntlp
 # RKE/RKE2 (web ui)
 https://www.rancher.com/quick-start
 ```
-# sudo docker run --privileged -d --restart=unless-stopped -p 80:80 -p 443:443 rancher/rancher
+sudo docker run --privileged -d --restart=unless-stopped -p 80:80 -p 443:443 rancher/rancher
 ```
 
 
