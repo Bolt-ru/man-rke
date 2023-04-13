@@ -103,7 +103,10 @@ https://docs.rke2.io/cluster_access
 # RKE2 (cli) Uninstall
 https://docs.rke2.io/install/uninstall
 ```
+/usr/bin/rke2-uninstall.sh
 /usr/local/bin/rke2-uninstall.sh
+/usr/local/bin/k3s-uninstall.sh
+/usr/local/bin/k3s-agent-uninstall.sh
 
 kubeadm reset
 sudo apt-get purge kubeadm kubectl kubelet kubernetes-cni kube*
